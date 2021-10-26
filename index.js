@@ -1,14 +1,19 @@
 const express = require('express')
 const formidable = require('formidable');
-const app = express()
 const mongoose = require('mongoose');
-const homeRoute1 = require('./routes/routes1/homeRoutes')
-const galleryRoute1 = require('./routes/routes1/galleryRoutes')
-const contactRoute1 = require('./routes/routes1/contactRoutes')
-const homeRoute2 = require('./routes/routes2/homeRoutes')
-const galleryRoute2 = require('./routes/routes2/galleryRoutes')
-const contactRoute2 = require('./routes/routes2/contactRoutes')
+const app = express()
 require('dotenv').config();
+/* 
+//routes first example (mv)
+const homeRoute = require('./routes/routes1/homeRoutes')
+const galleryRoute = require('./routes/routes1/galleryRoutes')
+const contactRoute = require('./routes/routes1/contactRoutes')
+*/
+
+//routes second example (mvc)
+const homeRoute = require('./routes/routes2/homeRoutes')
+const galleryRoute = require('./routes/routes2/galleryRoutes')
+const contactRoute = require('./routes/routes2/contactRoutes')
 
 //init db connection and port listener
 mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -27,12 +32,6 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.static('uploads'))
 
-//routes example 1
-/* app.use('/', homeRoute1)
-app.use('/gallery', galleryRoute1)
-app.use('/contacts', contactRoute1) */
-
-//routes example 2
-app.use('/', homeRoute2)
-app.use('/gallery', galleryRoute2)
-app.use('/contacts', contactRoute2)
+app.use('/', homeRoute)
+app.use('/gallery', galleryRoute)
+app.use('/contacts', contactRoute)
