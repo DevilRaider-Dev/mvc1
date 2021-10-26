@@ -1,0 +1,40 @@
+h1{
+    background: rgba(0,0,0,.5);
+    margin: 0;
+    padding: 10px 0;
+}
+body{
+    margin: 0;
+}
+#small{
+    width: 40%;
+    margin: 0 auto;
+    height:40vh;
+}
+img{
+    height:40vh;
+    object-fit: cover;
+}
+section{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+section h1{
+    display: flex;
+    justify-content: center;
+    font-size: 5em;
+    align-items: center;
+    background: #0d6efd;
+    
+}
+section h1 a{
+    color:#fff;
+    text-decoration: none;
+}
+section h1:last-child{
+    background: #fff;
+}
+section h1:last-child a{
+    color:#0d6efd
+}
